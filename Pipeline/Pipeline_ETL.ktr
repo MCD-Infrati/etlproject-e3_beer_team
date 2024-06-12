@@ -599,12 +599,22 @@
     </hop>
     <hop>
       <from>Eliminacion_IDs</from>
-      <to>If field value is null 2</to>
+      <to>fill null</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>If field value is null 2</from>
-      <to>Selecciona/Renombra valores 2</to>
+      <from>fill null</from>
+      <to>Rename Columns</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Microsoft Excel output</from>
+      <to>Text file output</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Rename Columns</from>
+      <to>Save dataset</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -619,7 +629,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>D:\Desktop\Universidad\Maestria Ciencia de Datos\1er Semestre\Infraestructura\Proyecto_ETL\etlproject-e3_beer_team\sources\AmesProperty.csv</filename>
+    <filename>D:\proyecto_ETL\etlproject-e3_beer_team\sources\AmesProperty.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -853,7 +863,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
+      <xloc>96</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
@@ -894,7 +904,143 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>144</xloc>
+      <xloc>224</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Eliminacion_IDs</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>pid_1</name>
+      </remove>
+      <remove>
+        <name>pid_2</name>
+      </remove>
+      <remove>
+        <name>PID_3</name>
+      </remove>
+      <remove>
+        <name>_id</name>
+      </remove>
+      <remove>
+        <name>PID_4</name>
+      </remove>
+      <remove>
+        <name>_id_1</name>
+      </remove>
+      <remove>
+        <name>PID_5</name>
+      </remove>
+      <remove>
+        <name>_id_2</name>
+      </remove>
+      <remove>
+        <name>PID_6</name>
+      </remove>
+      <remove>
+        <name>_id_3</name>
+      </remove>
+      <remove>
+        <name>PID_7</name>
+      </remove>
+      <remove>
+        <name>Year Remod/Add</name>
+      </remove>
+      <remove>
+        <name>Order</name>
+      </remove>
+      <meta>
+        <name>Lot Frontage</name>
+        <rename>Lot Frontage</rename>
+        <type>Integer</type>
+        <length>20</length>
+        <precision>0</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>848</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>fill null</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>N</selectFields>
+    <selectValuesType>Y</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      <valuetype>
+        <name>String</name>
+        <value>NA</value>
+        <mask/>
+        <set_type_empty_string>N</set_type_empty_string>
+      </valuetype>
+      <valuetype>
+        <name>Number</name>
+        <value>0</value>
+        <mask/>
+        <set_type_empty_string>N</set_type_empty_string>
+      </valuetype>
+      <valuetype>
+        <name>Integer</name>
+        <value>0</value>
+        <mask/>
+        <set_type_empty_string>N</set_type_empty_string>
+      </valuetype>
+    </valuetypes>
+    <fields>
+      </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1010,8 +1156,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
-      <yloc>352</yloc>
+      <xloc>96</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1111,8 +1257,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
-      <yloc>288</yloc>
+      <xloc>96</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1182,8 +1328,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
-      <yloc>480</yloc>
+      <xloc>96</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1253,50 +1399,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
-      <yloc>416</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Ordenar garages</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>PID</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>144</xloc>
-      <yloc>288</yloc>
+      <xloc>96</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1337,91 +1441,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>144</xloc>
-      <yloc>352</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Ordenar pools</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>PID</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>144</xloc>
-      <yloc>416</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Ordenar misc</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>PID</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>144</xloc>
+      <xloc>272</xloc>
       <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1463,8 +1483,134 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
+      <xloc>528</xloc>
       <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Ordenar garages</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>PID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Ordenar misc</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>PID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>816</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Ordenar pools</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>PID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1574,8 +1720,145 @@ order by PID;</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
-      <yloc>672</yloc>
+      <xloc>96</xloc>
+      <yloc>1280</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>PGSQL_floordetail</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Postgre_ETL</connection>
+    <sql>SELECT
+  PID,
+  SUM(bedrooms)::integer AS Bedrooms,
+  SUM("Full Bath")::integer AS FullBath,
+  SUM("Half Bath")::integer AS HalfBath
+FROM
+  floordetail
+GROUP BY
+  PID
+ORDER BY
+  PID;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>pid</name>
+        <length>15</length>
+        <precision>0</precision>
+        <origin>PGSQL_SaleProperty 2</origin>
+        <comments>pid</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_ES</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>bedrooms</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>PGSQL_SaleProperty 2</origin>
+        <comments>bedrooms</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_ES</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>fullbath</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>PGSQL_SaleProperty 2</origin>
+        <comments>fullbath</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_ES</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>halfbath</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>PGSQL_SaleProperty 2</origin>
+        <comments>halfbath</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_ES</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+    </row-meta>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>96</xloc>
+      <yloc>992</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2370,8 +2653,8 @@ order by PID;</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
-      <yloc>608</yloc>
+      <xloc>96</xloc>
+      <yloc>1184</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2667,7 +2950,359 @@ order by PID;</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
+      <xloc>368</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Rename Columns</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>pid</name>
+        <rename>PID</rename>
+      </field>
+      <field>
+        <name>MS SubClass</name>
+        <rename>MSSubClass</rename>
+      </field>
+      <field>
+        <name>MS Zoning</name>
+        <rename>MSZoning</rename>
+      </field>
+      <field>
+        <name>Lot Frontage</name>
+        <rename>LotFrontage</rename>
+      </field>
+      <field>
+        <name>Lot Area</name>
+        <rename>LotArea</rename>
+      </field>
+      <field>
+        <name>Street</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Alley</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Lot Shape</name>
+        <rename>LotShape</rename>
+      </field>
+      <field>
+        <name>Land Contour</name>
+        <rename>LandContour</rename>
+      </field>
+      <field>
+        <name>Utilities</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Lot Config</name>
+        <rename>LotConfig</rename>
+      </field>
+      <field>
+        <name>Land Slope</name>
+        <rename>LandSlope</rename>
+      </field>
+      <field>
+        <name>Neighborhood</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Condition 1</name>
+        <rename>Condition1</rename>
+      </field>
+      <field>
+        <name>Condition 2</name>
+        <rename>Condition2</rename>
+      </field>
+      <field>
+        <name>Bldg Type</name>
+        <rename>BldgType</rename>
+      </field>
+      <field>
+        <name>House Style</name>
+        <rename>HouseStyle</rename>
+      </field>
+      <field>
+        <name>Overall Qual</name>
+        <rename>OverallQual</rename>
+      </field>
+      <field>
+        <name>Overall Cond</name>
+        <rename>OverallCond</rename>
+      </field>
+      <field>
+        <name>Year Built</name>
+        <rename>YearBuilt</rename>
+      </field>
+      <field>
+        <name>Year Remod/Add_1</name>
+        <rename>YearRemodAdd</rename>
+      </field>
+      <field>
+        <name>Roof Style</name>
+        <rename>RoofStyle</rename>
+      </field>
+      <field>
+        <name>Roof Matl</name>
+        <rename>RoofMatl</rename>
+      </field>
+      <field>
+        <name>Exterior 1st</name>
+        <rename>Exterior1st</rename>
+      </field>
+      <field>
+        <name>Exterior 2nd</name>
+        <rename>Exterior2nd</rename>
+      </field>
+      <field>
+        <name>Mas Vnr Type</name>
+        <rename>MasVnrType</rename>
+      </field>
+      <field>
+        <name>Mas Vnr Area</name>
+        <rename>MasVnrArea</rename>
+      </field>
+      <field>
+        <name>Exter Qual</name>
+        <rename>ExterQual</rename>
+      </field>
+      <field>
+        <name>Exter Cond</name>
+        <rename>ExterCond</rename>
+      </field>
+      <field>
+        <name>foundation</name>
+        <rename>Foundation</rename>
+      </field>
+      <field>
+        <name>Bsmt Qual</name>
+        <rename>BsmtQual</rename>
+      </field>
+      <field>
+        <name>Bsmt Cond</name>
+        <rename>BsmtCond</rename>
+      </field>
+      <field>
+        <name>Bsmt Exposure</name>
+        <rename>BsmtExposure</rename>
+      </field>
+      <field>
+        <name>BsmtFin Type 1</name>
+        <rename>BsmtFinType1</rename>
+      </field>
+      <field>
+        <name>BsmtFin SF 1</name>
+        <rename>BsmtFinSF1</rename>
+      </field>
+      <field>
+        <name>BsmtFin Type 2</name>
+        <rename>BsmtFinType2</rename>
+      </field>
+      <field>
+        <name>BsmtFin SF 2</name>
+        <rename>BsmtFinSF2</rename>
+      </field>
+      <field>
+        <name>Bsmt Unf SF</name>
+        <rename>BsmtUnfSF</rename>
+      </field>
+      <field>
+        <name>Total Bsmt SF</name>
+        <rename>TotalBsmtSF</rename>
+      </field>
+      <field>
+        <name>heating</name>
+        <rename>Heating</rename>
+      </field>
+      <field>
+        <name>Heating QC</name>
+        <rename>HeatingQC</rename>
+      </field>
+      <field>
+        <name>Central Air</name>
+        <rename>CentralAir</rename>
+      </field>
+      <field>
+        <name>electrical</name>
+        <rename>Electrical</rename>
+      </field>
+      <field>
+        <name>1st Flr SF</name>
+        <rename>1stFlrSF</rename>
+      </field>
+      <field>
+        <name>2nd Flr SF</name>
+        <rename>2ndFlrSF</rename>
+      </field>
+      <field>
+        <name>Low Qual Fin SF</name>
+        <rename>LowQualFinSF</rename>
+      </field>
+      <field>
+        <name>grlivarea</name>
+        <rename>GrLivArea</rename>
+      </field>
+      <field>
+        <name>Bsmt Full Bath</name>
+        <rename>BsmtFullBath</rename>
+      </field>
+      <field>
+        <name>Bsmt Half Bath</name>
+        <rename>BsmtHalfBath</rename>
+      </field>
+      <field>
+        <name>fullbath</name>
+        <rename>FullBath</rename>
+      </field>
+      <field>
+        <name>halfbath</name>
+        <rename>HalfBath</rename>
+      </field>
+      <field>
+        <name>bedrooms</name>
+        <rename>Bedroom</rename>
+      </field>
+      <field>
+        <name>Kitchen AbvGr</name>
+        <rename>Kitchen</rename>
+      </field>
+      <field>
+        <name>Kitchen Qual</name>
+        <rename>KitchenQual</rename>
+      </field>
+      <field>
+        <name>TotRms AbvGrd</name>
+        <rename>TotRmsAbvGrd</rename>
+      </field>
+      <field>
+        <name>functional</name>
+        <rename>Functional</rename>
+      </field>
+      <field>
+        <name>fireplaces</name>
+        <rename>Fireplaces</rename>
+      </field>
+      <field>
+        <name>Fireplace Qu</name>
+        <rename>FireplaceQu</rename>
+      </field>
+      <field>
+        <name>Garage Type</name>
+        <rename>GarageType</rename>
+      </field>
+      <field>
+        <name>Garage Yr Blt</name>
+        <rename>GarageYrBlt</rename>
+      </field>
+      <field>
+        <name>Garage Finish</name>
+        <rename>GarageFinish</rename>
+      </field>
+      <field>
+        <name>Garage Cars</name>
+        <rename>GarageCars</rename>
+      </field>
+      <field>
+        <name>Garage Area</name>
+        <rename>GarageArea</rename>
+      </field>
+      <field>
+        <name>Garage Qual</name>
+        <rename>GarageQual</rename>
+      </field>
+      <field>
+        <name>Garage Cond</name>
+        <rename>GarageCond</rename>
+      </field>
+      <field>
+        <name>Paved Drive</name>
+        <rename>PavedDrive</rename>
+      </field>
+      <field>
+        <name>Wood Deck SF</name>
+        <rename>WoodDeckSF</rename>
+      </field>
+      <field>
+        <name>Open Porch SF</name>
+        <rename>OpenPorchSF</rename>
+      </field>
+      <field>
+        <name>Enclosed Porch</name>
+        <rename>EnclosedPorch</rename>
+      </field>
+      <field>
+        <name>3Ssn Porch</name>
+        <rename>3SsnPorch</rename>
+      </field>
+      <field>
+        <name>Screen Porch</name>
+        <rename>ScreenPorch</rename>
+      </field>
+      <field>
+        <name>Pool Area</name>
+        <rename>PoolArea</rename>
+      </field>
+      <field>
+        <name>Pool QC</name>
+        <rename>PoolQC</rename>
+      </field>
+      <field>
+        <name>fence</name>
+        <rename>Fence</rename>
+      </field>
+      <field>
+        <name>Misc Feature</name>
+        <rename>MiscFeature</rename>
+      </field>
+      <field>
+        <name>Misc Val</name>
+        <rename>MiscVal</rename>
+      </field>
+      <field>
+        <name>mosold</name>
+        <rename>MoSold</rename>
+      </field>
+      <field>
+        <name>yrsold</name>
+        <rename>YrSold</rename>
+      </field>
+      <field>
+        <name>saletype</name>
+        <rename>SaleType</rename>
+      </field>
+      <field>
+        <name>salecondition</name>
+        <rename>SaleCondition</rename>
+      </field>
+      <field>
+        <name>saleprice</name>
+        <rename>SalePrice</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1136</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2701,145 +3336,8 @@ order by PID;</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
-      <yloc>608</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>PGSQL_floordetail</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Postgre_ETL</connection>
-    <sql>SELECT
-  PID,
-  SUM(bedrooms)::integer AS Bedrooms,
-  SUM("Full Bath")::integer AS FullBath,
-  SUM("Half Bath")::integer AS HalfBath
-FROM
-  floordetail
-GROUP BY
-  PID
-ORDER BY
-  PID;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>pid</name>
-        <length>15</length>
-        <precision>0</precision>
-        <origin>PGSQL_SaleProperty 2</origin>
-        <comments>pid</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_ES</date_format_locale>
-        <date_format_timezone>America/Bogota</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>bedrooms</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>PGSQL_SaleProperty 2</origin>
-        <comments>bedrooms</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_ES</date_format_locale>
-        <date_format_timezone>America/Bogota</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>fullbath</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>PGSQL_SaleProperty 2</origin>
-        <comments>fullbath</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_ES</date_format_locale>
-        <date_format_timezone>America/Bogota</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>halfbath</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>PGSQL_SaleProperty 2</origin>
-        <comments>halfbath</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_ES</date_format_locale>
-        <date_format_timezone>America/Bogota</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-    </row-meta>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>48</xloc>
-      <yloc>544</yloc>
+      <xloc>480</xloc>
+      <yloc>1184</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2872,8 +3370,8 @@ ORDER BY
       </output>
     </remotesteps>
     <GUI>
-      <xloc>256</xloc>
-      <yloc>544</yloc>
+      <xloc>480</xloc>
+      <yloc>992</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2906,8 +3404,8 @@ ORDER BY
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
-      <yloc>480</yloc>
+      <xloc>480</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2940,8 +3438,8 @@ ORDER BY
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
-      <yloc>416</yloc>
+      <xloc>480</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2974,8 +3472,8 @@ ORDER BY
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
-      <yloc>352</yloc>
+      <xloc>480</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3008,8 +3506,8 @@ ORDER BY
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
-      <yloc>288</yloc>
+      <xloc>480</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3042,150 +3540,14 @@ ORDER BY
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>704</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Eliminacion_IDs</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>pid_1</name>
-      </remove>
-      <remove>
-        <name>pid_2</name>
-      </remove>
-      <remove>
-        <name>PID_3</name>
-      </remove>
-      <remove>
-        <name>_id</name>
-      </remove>
-      <remove>
-        <name>PID_4</name>
-      </remove>
-      <remove>
-        <name>_id_1</name>
-      </remove>
-      <remove>
-        <name>PID_5</name>
-      </remove>
-      <remove>
-        <name>_id_2</name>
-      </remove>
-      <remove>
-        <name>PID_6</name>
-      </remove>
-      <remove>
-        <name>_id_3</name>
-      </remove>
-      <remove>
-        <name>PID_7</name>
-      </remove>
-      <remove>
-        <name>Year Remod/Add</name>
-      </remove>
-      <remove>
-        <name>Order</name>
-      </remove>
-      <meta>
-        <name>Lot Frontage</name>
-        <rename>Lot Frontage</rename>
-        <type>Integer</type>
-        <length>20</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>560</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>If field value is null 2</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <replaceAllByValue/>
-    <replaceAllMask/>
-    <selectFields>N</selectFields>
-    <selectValuesType>Y</selectValuesType>
-    <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      <valuetype>
-        <name>String</name>
-        <value>NA</value>
-        <mask/>
-        <set_type_empty_string>N</set_type_empty_string>
-      </valuetype>
-      <valuetype>
-        <name>Number</name>
-        <value>0</value>
-        <mask/>
-        <set_type_empty_string>N</set_type_empty_string>
-      </valuetype>
-      <valuetype>
-        <name>Integer</name>
-        <value>0</value>
-        <mask/>
-        <set_type_empty_string>N</set_type_empty_string>
-      </valuetype>
-    </valuetypes>
-    <fields>
-      </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>672</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Selecciona/Renombra valores 2</name>
-    <type>SelectValues</type>
+    <name>Microsoft Excel output</name>
+    <type>ExcelOutput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -3194,24 +3556,110 @@ ORDER BY
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <encoding/>
+    <append>N</append>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>file</name>
+      <extention>xls</extention>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+      <create_parent_folder>N</create_parent_folder>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Sheet1</sheetname>
+      <autosizecolums>N</autosizecolums>
+      <nullisblank>N</nullisblank>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <splitevery>0</splitevery>
+      <usetempfiles>N</usetempfiles>
+      <tempdirectory/>
+    </file>
+    <template>
+      <enabled>N</enabled>
+      <append>N</append>
+      <filename>template.xls</filename>
+    </template>
     <fields>
-      <field>
-        <name>pid</name>
-        <rename>PID</rename>
-      </field>
-      <field>
-        <name>MS SubClass</name>
-        <rename>MSSubClass</rename>
-      </field>
-      <field>
-        <name>MS Zoning</name>
-        <rename>MSZoning</rename>
-      </field>
-      <field>
-        <name>Lot Frontage</name>
-        <rename>LotFrontage</rename>
-      </field>
-      <select_unspecified>N</select_unspecified>
+    </fields>
+    <custom>
+      <header_font_name>arial</header_font_name>
+      <header_font_size>10</header_font_size>
+      <header_font_bold>N</header_font_bold>
+      <header_font_italic>N</header_font_italic>
+      <header_font_underline>no</header_font_underline>
+      <header_font_orientation>horizontal</header_font_orientation>
+      <header_font_color>black</header_font_color>
+      <header_background_color>none</header_background_color>
+      <header_row_height>255</header_row_height>
+      <header_alignment>left</header_alignment>
+      <header_image/>
+      <row_font_name>arial</row_font_name>
+      <row_font_size>10</row_font_size>
+      <row_font_color>black</row_font_color>
+      <row_background_color>none</row_background_color>
+    </custom>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1512</xloc>
+      <yloc>1380</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Text file output</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>;</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>file</name>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery/>
+    </file>
+    <fields>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -3222,7 +3670,72 @@ ORDER BY
       </output>
     </remotesteps>
     <GUI>
-      <xloc>816</xloc>
+      <xloc>1712</xloc>
+      <yloc>1380</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Save dataset</name>
+    <type>TypeExitExcelWriterStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <makeSheetActive>Y</makeSheetActive>
+    <startingCell>A1</startingCell>
+    <appendOmitHeader>N</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
+    <appendLines>N</appendLines>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>D:\proyecto_ETL\etlproject-e3_beer_team\DataHouses</name>
+      <extention>xlsx</extention>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Sheet1</sheetname>
+      <autosizecolums>N</autosizecolums>
+      <stream_data>N</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by/>
+      <splitevery>0</splitevery>
+      <if_file_exists>new</if_file_exists>
+      <if_sheet_exists>new</if_sheet_exists>
+    </file>
+    <template>
+      <enabled>N</enabled>
+      <sheet_enabled>N</sheet_enabled>
+      <filename>template.xls</filename>
+      <sheetname/>
+      <hidden>N</hidden>
+    </template>
+    <fields>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1312</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
