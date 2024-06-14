@@ -2,12 +2,16 @@
 
 ## Tecnologías usadas:
 - **Pentaho DI**: Pentaho Data Integration (PDI), también conocido como Kettle, es una herramienta de software de integración de datos que permite a los usuarios diseñar, implementar y mantener flujos de trabajo de integración de datos. PDI se utiliza para extraer, transformar y cargar (ETL) datos desde diversas fuentes a destinos, facilitando la limpieza, transformación y consolidación de datos.
+
 ![alt text](images_intro/image.png)
 - **ElephantSQL**: ElephantSQL es un servicio de base de datos PostgreSQL basado en la nube que proporciona gestión y alojamiento de bases de datos PostgreSQL. Está diseñado para ser fácil de usar, escalable y seguro, ofreciendo capacidades como copias de seguridad automáticas, recuperación ante desastres y gestión de usuarios.
+
 ![alt text](images_intro/image-1.png)
 - **MongoDB**: MongoDB es una base de datos NoSQL de código abierto orientada a documentos. En lugar de almacenar datos en tablas y filas como en las bases de datos relacionales, MongoDB almacena datos en documentos BSON (una versión binaria de JSON).
+
 ![alt text](images_intro/image-2.png)
 - **CSV**: CSV es un formato de archivo simple y comúnmente utilizado para almacenar datos tabulares como en una hoja de cálculo o una base de datos. Los archivos CSV utilizan comas para separar los valores de las columnas y suelen tener una fila de encabezado que indica los nombres de las columnas.
+
 ![alt text](images_intro/image-3.png)
 ## Enunciado proyecto ETL:
 Implementar un proceso ETL con Pentaho Data Integration (PDI) para generar un archivo CSV. Este proceso implica la extracción y transformación de datos provenientes de la base de datos relacional BD Ames, archivos CSV y MongoDB.
